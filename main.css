@@ -1,0 +1,188 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap');
+
+:root {
+    --violet: #733FC8;
+    --greyish-blue: #48556A;
+    --blueish-black: #19202D;
+    --blueish-white: #ECF2F8;
+    --white: #FFFFFF;
+}
+
+* {
+    transition: 300ms ease;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 71px 24px;
+    background-color: var(--blueish-white);
+    font-family: "Barlow Semi Condensed", sans-serif;
+    color: var(--white);
+}
+
+main {
+    display: grid;
+    grid-template-columns: minmax(255px, 330px);
+    gap: 24px;
+}
+
+/* Testimonial Cards */
+section {
+    display: flex;
+    flex-direction: column;
+    border-radius: 8px;
+    box-shadow: 40px 60px 50px -47px rgba(72, 85, 106, 0.25);
+    padding: 32px;
+    padding-top: 26px;
+}
+
+section:nth-of-type(1) {
+    background-color: var(--violet);
+    background-image: url(./images/bg-pattern-quotation.svg);
+    background-size: 104px;
+    background-repeat: no-repeat;
+    background-position: right 24px top;
+}
+
+section:nth-of-type(2) {
+    background-color: var(--greyish-blue);
+}
+
+section:nth-of-type(4) {
+    background-color: var(--blueish-black);
+}
+
+section:nth-of-type(3), section:nth-of-type(5) {
+    background-color: var(--white);
+    color: var(--greyish-blue);
+}
+
+/* User Badge */
+.user-badge {
+    display: flex;
+    align-items: center;
+    gap: 17px;
+    margin-bottom: 18px;
+}
+
+.user-badge_image {
+    height: 28px;
+    width: 28px;
+    border-radius: 50%;
+    border: 2px solid #A775F1;
+}
+
+.user-badge_name {
+    font-size: 13px;
+    font-weight: 400;
+    line-height: 100%;
+    margin-bottom: 4px;
+}
+
+.user-badge_verification {
+    font-size: 11px;
+    line-height: 100%;
+    font-weight: 400;
+    opacity: .5;
+}
+
+/* Testimonial Text */
+.section-header {
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 120%;
+    margin-bottom: 18px;
+}
+
+.section-body {
+    font-size: 13px;
+    font-weight: 500;
+    line-height: 18px;
+    text-align: left;
+    opacity: .7;
+}
+
+@media (max-width: 569px) {
+    section:nth-of-type(1) .section-body {
+        margin-right: 16px;
+    }
+}
+
+/* Footer */
+.attribution { 
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--black); 
+    text-align: center; 
+    background-color: rgb(240, 240, 240);
+    padding: 8px;
+}
+
+.attribution a { 
+    color: hsl(228, 45%, 44%);
+    margin: 0;
+}
+
+.attribution p {
+    font-size: 11px;
+    margin: 0;
+}
+
+/* Medium Screen Size */
+@media (min-width: 600px) {
+    main {
+        grid-template-columns: repeat(2, minmax(auto, 330px));
+        grid-template-rows: max-content;
+        gap: 24px;
+    }
+
+    section:nth-of-type(1) {
+        grid-column: span 2;
+        background-position: right 80px top;
+    }
+
+    section:nth-of-type(4) {
+        grid-column: 2;        
+    }
+
+    section:nth-of-type(5) {
+        grid-row: 3;
+    }
+}
+
+/* Large Screen Size */
+@media (min-width: 1200px) {
+    main {
+        grid-template-columns: repeat(4, 255px);
+        grid-template-rows: repeat(2, auto);
+        column-gap: 30px;
+        row-gap: 24px;
+    }
+
+    section:nth-of-type(1) {
+        background-position: right 80px top;
+        grid-column: 1 / span 2;
+        order: 0;
+    }
+    
+    section:nth-of-type(2) {
+        grid-column: 3;
+    }
+    
+    section:nth-of-type(3) {
+        grid-column: 1;
+    }
+
+    section:nth-of-type(4) {
+        grid-column: 2 / span 2;
+        order: 0;
+    }
+    
+    section:nth-of-type(5) {
+        grid-column: 4;
+        grid-row: 1 / span 2;
+    }
+}
