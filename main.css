@@ -13,7 +13,7 @@ body {
     align-items: center;
     padding: 71px 24px;
     background-color: var(--blueish-white);
-    font-family: "Barlow Semi Condensed", sans-serif;
+    font-family: "Barlow Semi Condensed", serif;
     font-weight: 500;
     color: var(--white);
 }
