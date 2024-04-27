@@ -1,16 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@400;500;600;700&display=swap');
+@font-face {
+    font-family: 'Barlow Semi Condensed';
+    src: url('./fonts/barlowsemicondensed-regular-webfont.woff2') format('woff2'),
+         url('./fonts/barlowsemicondensed-regular-webfont.woff') format('woff');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Barlow Semi Condensed';
+    src: url('./fonts/barlowsemicondensed-medium-webfont.woff2') format('woff2'),
+         url('./fonts/barlowsemicondensed-medium-webfont.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Barlow Semi Condensed';
+    src: url('./fonts/barlowsemicondensed-semibold-webfont.woff2') format('woff2'),
+         url('./fonts/barlowsemicondensed-semibold-webfont.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+}
 
 :root {
-    --violet: #733FC8;
-    --greyish-blue: #48556A;
-    --blueish-black: #19202D;
-    --blueish-white: #ECF2F8;
-    --white: #FFFFFF;
+    --violet: hsla(263, 55%, 52%, 1);
+    --greyish-blue: hsla(217, 19%, 35%, 1);
+    --blueish-black: hsla(219, 29%, 14%, 1);
+    --blueish-white: hsla(210, 46%, 95%, 1);
+    --light-grey: hsla(0, 0%, 81%, 1);
+    --white: hsla(0, 0%, 100%, 1);
 }
-/* 
-* {
-    transition: 300ms ease;
-} */
 
 body {
     display: flex;
@@ -19,6 +38,7 @@ body {
     padding: 71px 24px;
     background-color: var(--blueish-white);
     font-family: "Barlow Semi Condensed", sans-serif;
+    font-weight: 500;
     color: var(--white);
 }
 
@@ -62,7 +82,7 @@ section:nth-of-type(3), section:nth-of-type(5) {
 /* User Badge */
 .user-badge {
     display: flex;
-    align-items: center;
+    align-items: flex-end;
     gap: 17px;
     margin-bottom: 18px;
 }
@@ -71,12 +91,18 @@ section:nth-of-type(3), section:nth-of-type(5) {
     height: 28px;
     width: 28px;
     border-radius: 50%;
-    border: 2px solid #A775F1;
+}
+
+section:nth-of-type(1) .user-badge_image {
+    outline: 2px solid hsla(264, 82%, 70%, 1);
+}
+
+section:nth-of-type(4) .user-badge_image {
+    outline: 2px solid hsla(263, 55%, 52%, 1);
 }
 
 .user-badge_name {
     font-size: 13px;
-    font-weight: 400;
     line-height: 100%;
     margin-bottom: 4px;
 }
@@ -84,24 +110,31 @@ section:nth-of-type(3), section:nth-of-type(5) {
 .user-badge_verification {
     font-size: 11px;
     line-height: 100%;
-    font-weight: 400;
     opacity: .5;
 }
 
 /* Testimonial Text */
 .section-header {
     font-size: 20px;
-    font-weight: 500;
+    font-weight: 600;
+    font-style: normal;
     line-height: 120%;
     margin-bottom: 16px;
 }
 
 .section-body {
     font-size: 13px;
-    font-weight: 500;
     line-height: 18px;
     text-align: left;
     opacity: .7;
+}
+
+section:nth-of-type(1) .section-body {
+    color: var(--light-grey);
+}
+
+section:nth-of-type(5) .section-body {
+    color: var(--greyish-blue);
 }
 
 @media (max-width: 600px) {
@@ -140,21 +173,32 @@ section:nth-of-type(3), section:nth-of-type(5) {
 @media (min-width: 600px) {
     main {
         grid-template-columns: repeat(2, minmax(auto, 330px));
-        grid-template-rows: max-content;
+        grid-template-areas: 
+            "daniel daniel"
+            "jonathan janette"
+            "kira patrick";
         gap: 24px;
     }
 
     section:nth-of-type(1) {
-        grid-column: span 2;
+        grid-area: daniel;
         background-position: right 80px top;
     }
 
+    section:nth-of-type(2) {
+        grid-area: jonathan;
+    }
+
+    section:nth-of-type(3) {
+        grid-area: janette;
+    }
+
     section:nth-of-type(4) {
-        grid-column: 2;        
+        grid-area: patrick;    
     }
 
     section:nth-of-type(5) {
-        grid-row: 3;
+        grid-area: kira;
     }
 }
 
@@ -163,6 +207,9 @@ section:nth-of-type(3), section:nth-of-type(5) {
     main {
         grid-template-columns: repeat(4, 255px);
         grid-template-rows: repeat(2, auto);
+        grid-template-areas: 
+            "daniel daniel jonathan kira"
+            "janette patrick patrick kira";
         column-gap: 30px;
         row-gap: 24px;
     }
@@ -173,26 +220,11 @@ section:nth-of-type(3), section:nth-of-type(5) {
 
     section:nth-of-type(1) {
         background-position: right 80px top;
-        grid-column: 1 / span 2;
         padding-bottom: 32px;
     }
     
     section:nth-of-type(2) {
-        grid-column: 3;
         padding-bottom: 32px;
-    }
-    
-    section:nth-of-type(3) {
-        grid-column: 1;
-    }
-
-    section:nth-of-type(4) {
-        grid-column: 2 / span 2;
-    }
-    
-    section:nth-of-type(5) {
-        grid-column: 4;
-        grid-row: 1 / span 2;
     }
 
     section:nth-of-type(3) .section-header,
