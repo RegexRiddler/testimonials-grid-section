@@ -1,4 +1,19 @@
-@import url('https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap');
+@font-face {
+    font-family: "Barlow Semi Condensed";
+    src: url(./fonts/barlowsemicondensed-medium-webfont.woff2) format("woff2"),
+         url(./fonts/barlowsemicondensed-medium-webfont.woff) format("woff");
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: "Barlow Semi Condensed";
+    src: url(./fonts/barlowsemicondensed-semibold-webfont.woff2) format("woff2"),
+         url(./fonts/barlowsemicondensed-semibold-webfont.woff) format("woff");
+    font-weight: 600;
+    font-style: normal;
+}
+
 
 :root {
     --violet: hsla(263, 55%, 52%, 1);
@@ -57,42 +72,42 @@ section:nth-of-type(3), section:nth-of-type(5) {
     color: var(--greyish-blue);
 }
 
-/* User Badge */
-.user-badge {
+/* Testimonial User */
+.testimonial-user {
     display: flex;
     align-items: flex-end;
     gap: 17px;
     margin-bottom: 18px;
 }
 
-.user-badge_image {
+.testimonial-user_image {
     height: 28px;
     width: 28px;
     border-radius: 50%;
 }
 
-section:nth-of-type(1) .user-badge_image {
+section:nth-of-type(1) .testimonial-user_image {
     outline: 2px solid hsla(264, 82%, 70%, 1);
 }
 
-section:nth-of-type(4) .user-badge_image {
+section:nth-of-type(4) .testimonial-user_image {
     outline: 2px solid hsla(263, 55%, 52%, 1);
 }
 
-.user-badge_name {
+.testimonial-user_name {
     font-size: 13px;
     line-height: 100%;
     margin-bottom: 4px;
 }
 
-.user-badge_verification {
+.testimonial-user_verification {
     font-size: 11px;
     line-height: 100%;
     opacity: .5;
 }
 
 /* Testimonial Text */
-.section-header {
+.quote-header {
     font-size: 20px;
     font-weight: 600;
     font-style: normal;
@@ -100,27 +115,27 @@ section:nth-of-type(4) .user-badge_image {
     margin-bottom: 16px;
 }
 
-.section-body {
+.quote-body {
     font-size: 13px;
     line-height: 18px;
     text-align: left;
     opacity: .7;
 }
 
-section:nth-of-type(1) .section-body {
+section:nth-of-type(1) .quote-body {
     color: var(--light-grey);
 }
 
-section:nth-of-type(5) .section-body {
+section:nth-of-type(5) .quote-body {
     color: var(--greyish-blue);
 }
 
 @media (max-width: 600px) {
-    section:first-of-type .section-header {
+    section:first-of-type .quote-header {
         margin-bottom: 40px;
     }
 
-    section:nth-of-type(1) .section-body {
+    section:nth-of-type(1) .quote-body {
         margin-right: 16px;
     }
 }
@@ -205,9 +220,9 @@ section:nth-of-type(5) .section-body {
         padding-bottom: 32px;
     }
 
-    section:nth-of-type(3) .section-header,
-    section:nth-of-type(4) .section-header, 
-    section:nth-of-type(5) .section-header {
+    section:nth-of-type(3) .quote-header,
+    section:nth-of-type(4) .quote-header, 
+    section:nth-of-type(5) .quote-header {
         margin-bottom: 24px;
     }
 }
